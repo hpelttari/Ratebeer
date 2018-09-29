@@ -6,6 +6,9 @@ script:
 - bundle exec rspec -fd spec
 deploy:
   provider: heroku
+  app: gentle-fjord-23024
+  on:
+    repo: hpelttari/Ratebeer
   api_key:
     secure: F5YKz7d5AbSABu8brbYF05l6pum8l7Ck1gZmb57e3Rje3GK2lZS1MQN6GMS8QBigerAUagMe2Pi930a88ubgxlnB+ytztm188HisDSrVOI7PaVz5xWo1jPkedeBSq73nas+mBd+0DFHJKVpz1Zdh1ZNSfGeDzZR9/EMn4fLMbrm1J9Q7ZbRPFSYb9gPxdhFmlvNGW570Lou9rNwX2SuUqQ9YyCoMlHWA3oXGQBO0bMC7ySz0Cs6azyW30wlYpJupgvShd6vV6wuhxydBCIA+KpqMCEyKQ5i8iWr7xpcTjS7l6939msUhYzwYcoV47PBzQNF4xwtFcLI+o0Eemy1qMr7ke0w8D5QogRaXYVaweJpfoV0EkAplyM3t6tXO5IZSUg8qqDL4ZhvSoBbKKKLbpoXhcd0ITlGy98OL4NJyTX+i7bQHOlcwDrozatZMT+nXc0QxoHe7esOpB1v6F13BUznjDcWDNo+PxUZM0+D1VszksKKqEeAmpyjF8rhWgT4z2fpgKYYPpZrea5+rIw/mUW9pP46LcobzEppc3zLdiz5qZh7YmP/5UkpLzGSIIE6oS+X9yrIA0WObhytIoa4CPX7Z4tbn0hoP+83KOo/L41mauF7RhEoacE0mgeiUtC4gS1lm356MeRh+g66hl5Fxq4YUIT9QeZU1U90Fudfnbas=
   run: "rails db:migrate"
