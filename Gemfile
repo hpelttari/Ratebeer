@@ -29,6 +29,26 @@ group :production do
   gem 'rails_12factor'
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.8'
+end
+
+group :test do
+  gem 'factory_bot_rails'
+end
+
+gem 'simplecov', require: false
+
+group :test do
+  # Adds support for Capybara system testing and selenium driver
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
+  # Easy installation and use of chromedriver to run system tests with Chrome
+  gem 'chromedriver-helper'
+  gem 'factory_bot_rails'
+  gem 'launchy'
+end
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
