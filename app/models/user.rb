@@ -29,32 +29,29 @@ class User < ApplicationRecord
     find_highest_average_for_breweries.name
   end
 
-  def average_rating_of_brewery(b)
-    ratings.find_all{ |r| r.beer.brewery.id==b.id}.map(&:score).inject(0,&:+)/ratings.find_all{ |r|  r.beer.brewery.id==b.id}.count.to_f
+  def average_rating_of_brewery(brew)
+    ratings.find_all{ |r| r.beer.brewery.id == brew.id }.map(&:score).inject(0, &:+) / ratings.find_all{ |r| r.beer.brewery.id == brew.id }.count.to_f
   end
 
-  def average_rating_of_style(s)
-    ratings.find_all{ |r| r.beer.style==s}.map(&:score).inject(0,&:+)/ratings.find_all{ |r|  r.beer.style==s}.count.to_f
+  def average_rating_of_style(beer_style)
+    ratings.find_all{ |r| r.beer.style == beer_style }.map(&:score).inject(0, &:+) / ratings.find_all{ |r| r.beer.style == beer_style }.count.to_f
   end
 
   def list_styles
-    ratings.map{ |r| r.beer.style}.uniq
+    ratings.map{ |r| r.beer.style }.uniq
   end
 
   def list_breweries
-    ratings.map{ |r| r.beer.brewery}.uniq
+    ratings.map{ |r| r.beer.brewery }.uniq
   end
 
   def find_highest_average_for_styles
-    a=list_styles
-    a.max { |a,b| average_rating_of_style(a) <=> average_rating_of_style(b) }
+    list = list_styles
+    list.max { |a, b| average_rating_of_style(a) <=> average_rating_of_style(b) }
   end
 
   def find_highest_average_for_breweries
-    a=list_breweries
-    a.max { |a,b| average_rating_of_brewery(a) <=> average_rating_of_brewery(b) }
+    list = list_breweries
+    list.max { |a, b| average_rating_of_brewery(a) <=> average_rating_of_brewery(b) }
   end
-
-  
-
 end
