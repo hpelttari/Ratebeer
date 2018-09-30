@@ -16,4 +16,45 @@ class User < ApplicationRecord
 
     ratings.order(score: :desc).limit(1).first.beer
   end
+
+  def favorite_style
+    return nil if ratings.empty?
+
+    find_highest_average_for_styles
+  end
+
+  def favorite_brewery
+    return nil if ratings.empty?
+
+    find_highest_average_for_breweries.name
+  end
+
+  def average_rating_of_brewery(b)
+    ratings.find_all{ |r| r.beer.brewery.id==b.id}.map(&:score).inject(0,&:+)/ratings.find_all{ |r|  r.beer.brewery.id==b.id}.count.to_f
+  end
+
+  def average_rating_of_style(s)
+    ratings.find_all{ |r| r.beer.style==s}.map(&:score).inject(0,&:+)/ratings.find_all{ |r|  r.beer.style==s}.count.to_f
+  end
+
+  def list_styles
+    ratings.map{ |r| r.beer.style}.uniq
+  end
+
+  def list_breweries
+    ratings.map{ |r| r.beer.brewery}.uniq
+  end
+
+  def find_highest_average_for_styles
+    a=list_styles
+    a.max { |a,b| average_rating_of_style(a) <=> average_rating_of_style(b) }
+  end
+
+  def find_highest_average_for_breweries
+    a=list_breweries
+    a.max { |a,b| average_rating_of_brewery(a) <=> average_rating_of_brewery(b) }
+  end
+
+  
+
 end

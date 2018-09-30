@@ -3,10 +3,19 @@ require 'rails_helper'
 include Helpers
 
 describe "Beers page" do
-    before :each do
-        FactoryBot.create(:brewery, name: "Panimo", year: 2001)
-    end
+    let!(:user) { FactoryBot.create :user }
+    let!(:brewery) { FactoryBot.create :brewery, name:"Panimo", year: 2001 }
+    
+        #FactoryBot.create(:brewery, name: "Panimo", year: 2001)
+    
 
+    describe "if user is logged in" do
+        before :each do
+            visit signin_path
+            fill_in('username', with:'Pekka')
+            fill_in('password', with:'Foobar1')
+            click_button('Log in')
+        end
     it "should have the possibility to add a beer" do
         
         visit beers_path
@@ -25,4 +34,6 @@ describe "Beers page" do
           }.not_to change{Beer.count}
         expect(page).to have_content "Name can't be blank"
         end
+
+    end
 end
