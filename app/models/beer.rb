@@ -6,7 +6,7 @@ class Beer < ApplicationRecord
   has_many :raters, through: :ratings, source: :user
 
   validates :name, presence: true
-  validates :style, presence: true
+  belongs_to :style
 
   def average_rating
     number_of_ratings = ratings.count.to_f
