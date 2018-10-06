@@ -20,7 +20,7 @@ class User < ApplicationRecord
   def favorite_style
     return nil if ratings.empty?
 
-    find_highest_average_for_styles
+    find_highest_average_for_styles.name
   end
 
   def favorite_brewery
