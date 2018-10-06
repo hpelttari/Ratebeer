@@ -19,6 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'httparty'
+
 # Herokua varten
 group :development, :test do
   gem 'sqlite3'
@@ -35,6 +37,7 @@ end
 
 group :test do
   gem 'factory_bot_rails'
+  gem 'webmock'
 end
 
 gem 'simplecov', require: false

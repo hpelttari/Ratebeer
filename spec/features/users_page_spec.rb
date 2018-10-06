@@ -41,7 +41,6 @@ describe "User" do
 
       it "can see their favorite brewery" do
         visit user_path(user)
-        save_and_open_page
         expect(page).to have_content 'Favorite brewery: Koff'
       end
 
