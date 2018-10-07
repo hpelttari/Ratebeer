@@ -4,9 +4,12 @@
   <strong>Username:</strong>
   <%= @user.username %>
 </p>
-
-<p>Number of ratings:<%= @user.ratings.count%> </p>
-<p>Average rating:<%= @user.average_rating%> </p>
+<% if @user.ratings.empty?%>
+  <%=@user.username%> has not rated anything yet!
+<%else%> 
+  <p>Number of ratings:<%= @user.ratings.count%> </p>
+  <p>Average rating:<%= @user.average_rating%> </p>
+<%end%>
 
 <p>
 <strong>Ratings:</strong>
