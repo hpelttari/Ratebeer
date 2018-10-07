@@ -1,1 +1,8 @@
 <h1> Styles </h1>
+
+
+  <tbody>
+    <% @styles.each do |style| %>
+        <p><%= link_to style.name, style %></p>
+    <% end %>
+  </tbody>

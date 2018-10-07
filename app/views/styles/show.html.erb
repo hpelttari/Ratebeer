@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h2>
+  <%= @style.name %>
+</h2>
+
+<p>
+  <%=@style.description%>
+</p>
+
+<p>
+  <% if @style.beers.empty? %>
+    style has no beers yet!
+  <% else %>
+      <tbody>
+    <% @style.beers.each do |beer| %>
+        <p><%= link_to beer, beer %> by <%= beer.brewery %></p>
+    <% end %>
+  </tbody>
+  <% end %>
+</p>
+

@@ -5,6 +5,7 @@ include Helpers
 describe "Beers page" do
     let!(:user) { FactoryBot.create :user }
     let!(:brewery) { FactoryBot.create :brewery, name:"Panimo", year: 2001 }
+    let!(:style) {FactoryBot.create :style, name: "Weizen"}
     
         #FactoryBot.create(:brewery, name: "Panimo", year: 2001)
     
@@ -21,6 +22,8 @@ describe "Beers page" do
         visit beers_path
         click_link "New Beer"
         fill_in('beer[name]', with:'Kalja')
+        #select('Weizen', from: 'beer[style_id]')
+        select('Panimo', from: 'beer[brewery_id]')
         expect{
             click_button "Create Beer"
           }.to change{Beer.count}.from(0).to(1)
