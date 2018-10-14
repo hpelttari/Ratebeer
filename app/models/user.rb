@@ -18,40 +18,36 @@ class User < ApplicationRecord
   end
 
   def favorite_style
-    return nil if ratings.empty?
-
-    find_highest_average_for_styles.name
+    favorite(:style)
   end
 
   def favorite_brewery
+    favorite(:brewery)
+  end
+
+  def favorite(groupped_by)
     return nil if ratings.empty?
 
-    find_highest_average_for_breweries.name
+    grouped_ratings = ratings.group_by{ |r| r.beer.send(groupped_by) }
+    averages = grouped_ratings.map do |group, ratings|
+      { group: group, score: average_of(ratings) }
+    end
+
+    averages.max_by{ |r| r[:score] }[:group]
   end
 
-  def average_rating_of_brewery(brew)
-    ratings.find_all{ |r| r.beer.brewery.id == brew.id }.map(&:score).inject(0, &:+) / ratings.find_all{ |r| r.beer.brewery.id == brew.id }.count.to_f
+  def average_of(ratings)
+    ratings.sum(&:score).to_f / ratings.count
   end
 
-  def average_rating_of_style(beer_style)
-    ratings.find_all{ |r| r.beer.style == beer_style }.map(&:score).inject(0, &:+) / ratings.find_all{ |r| r.beer.style == beer_style }.count.to_f
+  def self.most_active(num)
+    sorted_by_number_of_ratings_in_desc_order = User.all.sort_by{ |b| -(b.ratings.count || 0) }
+    # palauta listalta parhaat n kappaletta
+    # miten? ks. http://www.ruby-doc.org/core-2.5.1/Array.html
+    sorted_by_number_of_ratings_in_desc_order[0..num - 1]
   end
 
-  def list_styles
-    ratings.map{ |r| r.beer.style }.uniq
-  end
-
-  def list_breweries
-    ratings.map{ |r| r.beer.brewery }.uniq
-  end
-
-  def find_highest_average_for_styles
-    list = list_styles
-    list.max { |a, b| average_rating_of_style(a) <=> average_rating_of_style(b) }
-  end
-
-  def find_highest_average_for_breweries
-    list = list_breweries
-    list.max { |a, b| average_rating_of_brewery(a) <=> average_rating_of_brewery(b) }
+  def to_s
+    username.to_s
   end
 end

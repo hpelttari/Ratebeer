@@ -1,31 +1,31 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/helpers/application_helper.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/helpers/beer_clubs_helper.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/helpers/beer_clubs_helper.rb": [
         1,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/helpers/beers_helper.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/helpers/beers_helper.rb": [
         1,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/helpers/breweries_helper.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/helpers/breweries_helper.rb": [
         1,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/helpers/memberships_helper.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/helpers/memberships_helper.rb": [
         1,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/helpers/users_helper.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/models/beer.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/models/beer.rb": [
         1,
         1,
         null,
@@ -53,28 +53,28 @@
         null,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/models/application_record.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/models/concerns/rating_average.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/models/concerns/rating_average.rb": [
         1,
         1,
         null,
         1,
-        2,
-        2,
-        2,
+        0,
+        0,
+        0,
         null,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/models/style.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/models/style.rb": [
         1,
         1,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/models/user.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/models/user.rb": [
         1,
         1,
         null,
@@ -133,7 +133,7 @@
         null,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/models/brewery.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/models/brewery.rb": [
         1,
         1,
         null,
@@ -171,7 +171,7 @@
         null,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/controllers/sessions_controller.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/controllers/sessions_controller.rb": [
         1,
         1,
         null,
@@ -196,7 +196,7 @@
         null,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/controllers/application_controller.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/controllers/application_controller.rb": [
         1,
         null,
         1,
@@ -212,7 +212,7 @@
         null,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/controllers/users_controller.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/controllers/users_controller.rb": [
         1,
         1,
         null,
@@ -289,7 +289,7 @@
         null,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/models/rating.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/models/rating.rb": [
         1,
         1,
         1,
@@ -303,19 +303,19 @@
         null,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/models/membership.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/models/membership.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/models/beer_club.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/models/beer_club.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/controllers/beers_controller.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/controllers/beers_controller.rb": [
         1,
         1,
         1,
@@ -403,7 +403,7 @@
         null,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/controllers/breweries_controller.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/controllers/breweries_controller.rb": [
         1,
         1,
         1,
@@ -481,7 +481,7 @@
         null,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/lib/beermapping_api.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/lib/beermapping_api.rb": [
         1,
         1,
         5,
@@ -513,14 +513,14 @@
         null,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/models/place.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/models/place.rb": [
         1,
         1,
         2,
         null,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/controllers/places_controller.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/controllers/places_controller.rb": [
         1,
         1,
         null,
@@ -546,139 +546,13 @@
         null,
         null
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/controllers/styles_controller.rb": [
-        0,
-        null,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
+      "/home/hannu/Desktop/ruby/Ratebeer/app/mailers/application_mailer.rb": [
         0,
         0,
         0,
         0
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/controllers/beer_clubs_controller.rb": [
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        0,
-        0,
-        0,
-        null,
-        null,
-        0,
-        0,
-        null,
-        null,
-        null,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        0,
-        0,
-        0,
-        null,
-        null,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/controllers/ratings_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/controllers/memberships_controller.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/controllers/memberships_controller.rb": [
         0,
         0,
         null,
@@ -756,29 +630,153 @@
         0,
         0
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/jobs/application_job.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/controllers/beer_clubs_controller.rb": [
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
         0,
         0
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/mailers/application_mailer.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/controllers/ratings_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
         0,
         0,
         0,
         0
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/channels/application_cable/channel.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/controllers/styles_controller.rb": [
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
         0,
         0,
         0,
         0
       ],
-      "/home/hannu/Desktop/rubyOnRails/ratebeer/app/channels/application_cable/connection.rb": [
+      "/home/hannu/Desktop/ruby/Ratebeer/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/home/hannu/Desktop/ruby/Ratebeer/app/channels/application_cable/channel.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/hannu/Desktop/ruby/Ratebeer/app/channels/application_cable/connection.rb": [
         0,
         0,
         0,
         0
       ]
     },
-    "timestamp": 1538929585
+    "timestamp": 1539339479
   }
 }

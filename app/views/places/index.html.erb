@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"></p>
 
 <%= form_tag places_path do %>
   city <%= text_field_tag :city, params[:city] %>
@@ -6,7 +6,17 @@
 <% end %>
 
 <% if @places %>
-  <table>
+
+<h4>the current beer weather in <%= @places.first.city %></h4>
+
+  <p><%= @weather['temp_c'] %> Celsius</p>
+
+  <img src=<%= @weather['condition']['icon'] %> >
+
+  <p><strong>wind</strong> <%= (@weather['wind_kph'] * 0.277777778).round(1) %> m/sec, direction <%= @weather['wind_dir'] %> </p>
+
+  <h4>places to get your beer</h4>
+  <table class="table table-hover">
     <thead>
       <% Place.rendered_fields.each do |field| %>
         <th><%= field %></th>

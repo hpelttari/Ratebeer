@@ -3,9 +3,13 @@
 Rails.application.routes.draw do
   resources :memberships
   resources :beer_clubs
-  resources :users
+  resources :users do
+    post 'toggle_activity', on: :member
+  end
   resources :beers
-  resources :breweries
+  resources :breweries do
+    post 'toggle_activity', on: :member
+  end
   resource :session, only: [:new, :create, :destroy]
   resources :places, only: [:index, :show]
   post 'places', to:'places#search'
@@ -16,7 +20,7 @@ Rails.application.routes.draw do
   get 'places', to: 'places#index'
   post 'places', to:'places#search'
   get 'styles', to: 'styles#index'
-  resources :styles, only: [:index, :show]
+  resources :styles, only: [:index, :show, :create, :destroy, :edit]
   # get 'kaikki_bisset', to: 'beers#index'
   # get 'ratings', to: 'ratings#index'
   # get 'ratings/new', to:'ratings#new'
