@@ -1,12 +1,21 @@
 class BeerClubsController < ApplicationController
   before_action :set_beer_club, only: [:show, :edit, :update, :destroy]
-  before_action :ensure_that_signed_in, except: [:index, :show]
+  before_action :ensure_that_signed_in, except: [:index, :show, :list]
   before_action :ensure_admin_rights, only: [:destroy]
 
   # GET /beer_clubs
   # GET /beer_clubs.json
+
   def index
     @beer_clubs = BeerClub.all
+  
+    order = params[:order] || 'name'
+  
+    @beer_clubs = case order
+      when 'name' then @beer_clubs.sort_by{ |b| b.name }
+      when 'founded' then @beer_clubs.sort_by{ |b| b.founded }
+      when 'city' then @beer_clubs.sort_by{ |b| b.city }
+    end
   end
 
   # GET /beer_clubs/1

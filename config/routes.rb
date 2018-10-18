@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get 'places', to: 'places#index'
   post 'places', to:'places#search'
   get 'styles', to: 'styles#index'
+  get 'beerlist', to:'beers#list'
+  get 'brewerylist', to:'breweries#list'
   resources :styles, only: [:index, :show, :create, :destroy, :edit]
   # get 'kaikki_bisset', to: 'beers#index'
   # get 'ratings', to: 'ratings#index'
