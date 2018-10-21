@@ -18,13 +18,28 @@
 <p>
   <strong>Members:</strong>
   <%= @beer_club.users.each do |user| %>
+    <% if @beer_club.memberships.find_by_user_id(user.id).confirmed %> 
   <%= link_to user do%>
   <p><%= user.username%></p>
   <% end %>
   <% end %>
+  <% end %>
 </p>
 
+
 <% if current_user %>
+
+<% if @beer_club.is_member(current_user) and @beer_club.memberships.find_by_user_id(current_user.id).confirmed  %>
+<p>
+  <strong>Outstanding applications:</strong>
+  <% @pending_users.each do |u| %>
+    <p> <%= User.find_by_id(u.user_id).username %> 
+    <%= link_to "Confirm", confirm_membership_path(u.id), method: :post, class: "btn btn-primary" %>
+    </p>
+    <% end %>
+</p>
+<% end %>
+
 <%if @beer_club.users.find_by_id(current_user.id).nil? %>
 
 <%= form_for(@membership) do |f| %>
@@ -32,9 +47,11 @@
  <%= f.submit value:"join the club", class:"btn btn-primary"  %>
 <% end %>
 <%else%>
+<% if @beer_club.is_member(current_user) and @beer_club.memberships.find_by_user_id(current_user.id).confirmed  %>
 <%= form_for(@membership, method: "delete") do |f| %>
  <%= f.hidden_field :beer_club_id %>
  <%= f.submit value: "end the membership", class:"btn btn-primary"  %>
+<% end %>
 <% end %>
 <% end %>
 <% end %>

@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   resources :users do
     post 'toggle_activity', on: :member
   end
+
+  resources :memberships do
+    post 'confirm', on: :member
+  end
+
   resources :beers
   resources :breweries do
     post 'toggle_activity', on: :member
@@ -23,6 +28,7 @@ Rails.application.routes.draw do
   get 'beerlist', to:'beers#list'
   get 'brewerylist', to:'breweries#list'
   resources :styles, only: [:index, :show, :create, :destroy, :edit]
+  get 'auth/:provider/callback', to: 'sessions#create_oauth'
   # get 'kaikki_bisset', to: 'beers#index'
   # get 'ratings', to: 'ratings#index'
   # get 'ratings/new', to:'ratings#new'

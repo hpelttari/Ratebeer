@@ -1,6 +1,6 @@
 class BeerClubsController < ApplicationController
   before_action :set_beer_club, only: [:show, :edit, :update, :destroy]
-  before_action :ensure_that_signed_in, except: [:index, :show, :list]
+  before_action :ensure_that_signed_in, except: [:index, :show]
   before_action :ensure_admin_rights, only: [:destroy]
 
   # GET /beer_clubs
@@ -8,19 +8,22 @@ class BeerClubsController < ApplicationController
 
   def index
     @beer_clubs = BeerClub.all
-  
+
     order = params[:order] || 'name'
-  
+
     @beer_clubs = case order
-      when 'name' then @beer_clubs.sort_by{ |b| b.name }
-      when 'founded' then @beer_clubs.sort_by{ |b| b.founded }
-      when 'city' then @beer_clubs.sort_by{ |b| b.city }
-    end
+                  when 'name' then @beer_clubs.sort_by(&:name)
+                  when 'founded' then @beer_clubs.sort_by(&:founded)
+                  when 'city' then @beer_clubs.sort_by(&:city)
+                  end
   end
 
   # GET /beer_clubs/1
   # GET /beer_clubs/1.json
   def show
+
+    @pending_users = @beer_club.memberships.all.where(confirmed: false)
+
     if current_user && @beer_club.users.find_by_id(current_user.id).nil?
       @membership = Membership.new
       @membership.beer_club = @beer_club

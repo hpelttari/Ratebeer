@@ -26,6 +26,7 @@ class MembershipsController < ApplicationController
   # POST /memberships.json
   def create
     @membership = Membership.new(membership_params)
+    @membership.update_attribute(:confirmed, false)
 
     if @membership.save
       if current_user.memberships.find_by(beer_club_id: params[:membership][:beer_club_id]).nil?
@@ -60,6 +61,13 @@ class MembershipsController < ApplicationController
     @membership.destroy
     flash[:notice] = "Membership in #{@club.name} has ended."
     redirect_to user_path(@user)
+  end
+
+  def confirm
+    membership = Membership.find(params[:id])
+    membership.update_attribute :confirmed, true
+
+    redirect_to breweries_path, notice: "Membership confirmed!"
   end
 
   private

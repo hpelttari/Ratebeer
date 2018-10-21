@@ -1,5 +1,6 @@
 class Brewery < ApplicationRecord
   include RatingAverage
+  include Top
 
   has_many :beers, dependent: :destroy
   has_many :ratings, through: :beers
@@ -25,19 +26,6 @@ class Brewery < ApplicationRecord
   def restart
     self.year = 2018
     puts "changed year to #{year}"
-  end
-
-  def average_rating
-    number_of_ratings = ratings.count.to_f
-    sum = ratings.map(&:score).inject(0, &:+)
-    sum / number_of_ratings
-  end
-
-  def self.top(num)
-    sorted_by_rating_in_desc_order = Brewery.all.sort_by{ |b| -(b.average_rating || 0) }
-    # palauta listalta parhaat n kappaletta
-    # miten? ks. http://www.ruby-doc.org/core-2.5.1/Array.html
-    sorted_by_rating_in_desc_order[0..num - 1]
   end
 
   def to_s

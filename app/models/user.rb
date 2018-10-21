@@ -11,6 +11,18 @@ class User < ApplicationRecord
                        length: { minimum: 3, maximum: 30 }
   validates :password, length: { minimum: 4 }, format: { with: /\A(?=.*\d)(?=.*[A-Z])/x }
 
+  def self.github_signin(github_user)
+    nick = github_user.nickname
+    git_user = User.find_by_username(nick)
+
+    if git_user
+      git_user
+    else
+      password = SecureRandom.base64(25)
+      User.create!(username: nick, password: password, password_confirmation: password)
+    end
+  end
+
   def favorite_beer
     return nil if ratings.empty?
 

@@ -21,6 +21,12 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'httparty'
 
+gem 'omniauth-github'
+
+gem 'sucker_punch', '~> 2.0'
+
+gem 'rack-mini-profiler'
+
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 

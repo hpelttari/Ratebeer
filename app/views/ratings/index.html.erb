@@ -1,28 +1,41 @@
+
+
 <h1>Ratings</h1>
 
+<% cache 'top_beers', expires_in:10.minutes do %>
 <h3>Highest rated beers</h3>
 <%= render 'list', c: @top_beers %>
+<% end %>
 
+<% cache 'top_breweries', expires_in:10.minutes do %>
 <h3>Highest rated breweries</h3>
 <%= render 'list', c: @top_breweries %>
+<% end %>
 
+<% cache 'top_styles', expires_in:10.minutes do %>
 <h3>Styles with highest ratings</h3>
 <%= render 'list', c: @top_styles %>
+<% end %>
 
+<% cache 'active_users', expires_in:10.minutes do %>
 <h3>Most active users</h3>
 <ul>
   <% @most_active_users.each do |user| %>
     <li><%= link_to user%>, <%= user.ratings.count %> ratings </li>
   <% end %>
 </ul>
+<% end %>
 
+<% cache 'recent_ratings', expires_in:10.minutes do %>
 <h3>Most recent ratings</h3>
 <ul>
   <% @most_recent_ratings.each do |rating| %>
     <li> <%= rating %> <%= link_to rating.user.username, rating.user  %> </li>
   <% end %>
 </ul>
+<% end %>
 
 <p>Number of ratings:<%= @ratings.count%> </p>
+
 <br>
 <p> <%= link_to 'New Rating', new_rating_path, class:'btn btn-primary' %> </p>

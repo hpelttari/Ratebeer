@@ -22,4 +22,15 @@ class SessionsController < ApplicationController
     # uudelleenohjataan sovellus pääsivulle
     redirect_to :root
   end
+
+  def create_oauth
+    user = User.github_signin(request.env['omniauth.auth'].info)
+
+    if user
+      session[:user_id] = user.id
+      redirect_to user_path(user)
+    else
+      redirect_to signin_path, notice: "Signin with Github failed"
+    end
+  end
 end
