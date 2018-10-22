@@ -48,6 +48,10 @@ class BeerClubsController < ApplicationController
 
     respond_to do |format|
       if @beer_club.save
+
+        @beer_club.users << current_user
+        @beer_club.memberships.find_by_user_id(current_user.id).update_attribute(:confirmed, true)
+        
         format.html { redirect_to @beer_club, notice: 'Beer club was successfully created.' }
         format.json { render :show, status: :created, location: @beer_club }
       else
