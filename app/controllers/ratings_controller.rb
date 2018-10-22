@@ -19,7 +19,7 @@ class RatingsController < ApplicationController
     # @top_beers = Beer.top 3
     @most_recent_ratings = Rails.cache.fetch('recent_ratings') { Rating.recent }
     @top_styles = Rails.cache.fetch('top_styles') { Style.top 3 }
-    @most_active_users = Rails.cache.fetch('active_users') { User.most_active 3 }
+    @most_active_users = Rails.cache.fetch('active_users') { User.top 3 }
   end
 
   def new

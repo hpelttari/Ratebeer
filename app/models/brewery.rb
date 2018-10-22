@@ -1,6 +1,6 @@
 class Brewery < ApplicationRecord
   include RatingAverage
-  include Top
+  extend Top
 
   has_many :beers, dependent: :destroy
   has_many :ratings, through: :beers

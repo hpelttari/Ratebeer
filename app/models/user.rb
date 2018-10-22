@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include RatingAverage
+  extend Top
 
   has_secure_password
   has_many :ratings, dependent: :destroy
@@ -52,12 +53,6 @@ class User < ApplicationRecord
     ratings.sum(&:score).to_f / ratings.count
   end
 
-  def self.most_active(num)
-    sorted_by_number_of_ratings_in_desc_order = User.all.sort_by{ |b| -(b.ratings.count || 0) }
-    # palauta listalta parhaat n kappaletta
-    # miten? ks. http://www.ruby-doc.org/core-2.5.1/Array.html
-    sorted_by_number_of_ratings_in_desc_order[0..num - 1]
-  end
 
   def to_s
     username.to_s
