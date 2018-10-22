@@ -29,7 +29,7 @@
 
 <% if current_user %>
 
-<% if @beer_club.is_member(current_user) and @beer_club.memberships.find_by_user_id(current_user.id).confirmed  %>
+<% if @beer_club.member?(current_user) and @beer_club.memberships.find_by_user_id(current_user.id).confirmed  %>
 <p>
   <strong>Outstanding applications:</strong>
   <% @pending_users.each do |u| %>
@@ -47,7 +47,7 @@
  <%= f.submit value:"join the club", class:"btn btn-primary"  %>
 <% end %>
 <%else%>
-<% if @beer_club.is_member(current_user) and @beer_club.memberships.find_by_user_id(current_user.id).confirmed  %>
+<% if @beer_club.member?(current_user) and @beer_club.memberships.find_by_user_id(current_user.id).confirmed  %>
 <%= form_for(@membership, method: "delete") do |f| %>
  <%= f.hidden_field :beer_club_id %>
  <%= f.submit value: "end the membership", class:"btn btn-primary"  %>
